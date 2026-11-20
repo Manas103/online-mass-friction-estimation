@@ -1,0 +1,6 @@
+cases: 2000 window: 15
+max abs diff vs python: 3.72529e-09
+n: 2000
+p50 us: 0.24
+p95 us: 0.3
+p99 us: 0.32

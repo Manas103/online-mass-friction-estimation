@@ -1,0 +1,43 @@
+<mujoco model="two_finger_grasp">
+  <option gravity="0 0 -9.81" timestep="0.002" integrator="RK4"/>
+  <default>
+    <geom contype="1" conaffinity="1" condim="4" friction="1.0 0.01 0.0001" solref="0.004 1" solimp="0.9 0.95 0.001"/>
+  </default>
+
+  <worldbody>
+    <light pos="0 0 1" dir="0 0 -1" diffuse="0.9 0.9 0.9"/>
+
+    <body name="box" pos="0 0 0">
+      <joint name="box_z" type="slide" axis="0 0 1" damping="0.0"/>
+      <geom name="box_geom" type="box" size="0.03 0.03 0.03" mass="0.2" friction="0.6 0.01 0.0001" rgba="0.8 0.2 0.2 1"/>
+    </body>
+
+    <body name="palm" pos="0 0 0">
+      <joint name="palm_z" type="slide" axis="0 0 1" damping="0.5"/>
+      <geom name="palm_geom" type="box" size="0.01 0.06 0.005" pos="0 0 0.05" rgba="0.3 0.3 0.3 0.3" contype="0" conaffinity="0"/>
+
+      <body name="left_finger" pos="-0.038 0 0">
+        <joint name="left_finger_x" type="slide" axis="1 0 0" damping="0.2"/>
+        <geom name="left_pad" type="box" size="0.008 0.03 0.11" friction="0.001 0.01 0.0001" rgba="0.2 0.2 0.8 1"/>
+        <site name="left_site" pos="0 0 0" size="0.001"/>
+      </body>
+
+      <body name="right_finger" pos="0.038 0 0">
+        <joint name="right_finger_x" type="slide" axis="1 0 0" damping="0.2"/>
+        <geom name="right_pad" type="box" size="0.008 0.03 0.11" friction="0.001 0.01 0.0001" rgba="0.2 0.8 0.2 1"/>
+        <site name="right_site" pos="0 0 0" size="0.001"/>
+      </body>
+    </body>
+  </worldbody>
+
+  <actuator>
+    <motor name="left_grip" joint="left_finger_x" ctrlrange="-18 18" gear="1"/>
+    <motor name="right_grip" joint="right_finger_x" ctrlrange="-18 18" gear="1"/>
+    <position name="palm_lift" joint="palm_z" kp="3000" kv="40" ctrlrange="-0.5 0.5"/>
+  </actuator>
+
+  <sensor>
+    <force name="left_force" site="left_site"/>
+    <force name="right_force" site="right_site"/>
+  </sensor>
+</mujoco>

@@ -1,0 +1,18 @@
+# C++ build directories. Regenerate with (from cpp/):
+#   cmake -S . -B build -DCMAKE_BUILD_TYPE=Release && cmake --build build -j2
+#   cmake -S . -B build_asan -DCMAKE_BUILD_TYPE=Debug -DENABLE_ASAN=ON && cmake --build build_asan -j2
+cpp/build/
+cpp/build_asan/
+cpp/build.log
+cpp/build_asan.log
+cpp/asan_run.log
+
+# Regenerable C++ diff/bench test vectors. Regenerate with (from python/):
+#   python export_model_vectors.py
+cpp/testdata/
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.pytest_cache/

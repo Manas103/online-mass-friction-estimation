@@ -1,0 +1,14 @@
+{
+  "n_trials": 600,
+  "adaptive_success_rate": 0.9366666666666666,
+  "blind_success_rate": 0.345,
+  "adaptive_successes": 562,
+  "blind_successes": 207,
+  "estimator_solve_time_p50_ms": 2.440899988869205,
+  "estimator_solve_time_p95_ms": 4.239299974869937,
+  "estimator_solve_time_p99_ms": 5.261304015293716,
+  "control_budget_ms": 8.333333333333334,
+  "mean_abs_mass_error_kg": 0.07517119869774441,
+  "mean_abs_mu_error": 0.34910654537311797,
+  "wall_clock_s": 304.66698259999976
+}

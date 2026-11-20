@@ -1,0 +1,5 @@
+TestHeldRegimeIsNearZero passed
+TestSlipRegimeGrowsWithUndershoot passed
+TestDeterministic passed
+TestFinite passed
+check_property_model: 4 checks passed
